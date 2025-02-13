@@ -1,7 +1,3 @@
-const API_KEYS = {
-    gemini: "AIzaSyDk9r39Qau0lCEQQx-0NxrF25IRok0OOXM", // Replace with your actual Gemini API key
-    gpt: "YOUR_OPENAI_API_KEY" // Replace with your actual OpenAI API key
-};
 
 document.getElementById("qa-form").addEventListener("submit", async function (event) {
     event.preventDefault(); // Prevent page reload
@@ -23,8 +19,8 @@ document.getElementById("qa-form").addEventListener("submit", async function (ev
 
         if (llmChoice === "gemini") {
             responseText = await fetchGemini(question);
-        } else if (llmChoice === "gpt") {
-            responseText = await fetchGPT(question);
+        } else if (llmChoice === "gpt") { // GPT is DeepSeek in your case
+            responseText = await fetchDeepSeekResponse(question);
         }
 
         // Format response based on user selection
@@ -38,42 +34,27 @@ document.getElementById("qa-form").addEventListener("submit", async function (ev
 });
 
 async function fetchGemini(question) {
-    const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEYS.gemini}`;
-    
-    const response = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            contents: [{ parts: [{ text: question }] }],
-        })
-    });
+    const API_URL = "http://localhost:3000/ask-gemini";
 
-    const data = await response.json();
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ contents: [{ parts: [{ text: question }] }] })
+        });
 
-    // Extract the response text
-    return data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received from Gemini.";
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(`Gemini Error: ${JSON.stringify(data)}`);
+        }
+
+        return data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received from Gemini.";
+    } catch (error) {
+        console.error("Error fetching Gemini response:", error);
+        return "Failed to get response from Gemini.";
+    }
 }
-
-async function fetchGPT(question) {
-    const API_URL = "https://api.openai.com/v1/chat/completions";
-
-    const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEYS.gpt}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: question }],
-            temperature: 0.7
-        })
-    });
-
-    const data = await response.json();
-    return data?.choices?.[0]?.message?.content || "No response received from GPT.";
-}
-
 // Function to format the response based on user selection
 function formatResponse(response, formatType) {
     switch (formatType) {

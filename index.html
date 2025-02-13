@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Answering App</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +20,7 @@
                 <label for="llm-selector">Choose LLM:</label>
                 <select id="llm-selector" required>
                     <option value="gemini">Gemini</option>
-                    <option value="gpt">GPT-3</option>
+                    <!--<option value="gpt">GPT-3</option> -->
                 </select>
             </div>
             
@@ -40,7 +41,7 @@
         
         <div id="response-area" class="response-container"></div>
     </div>
-
+    <script type="module" src="app.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
