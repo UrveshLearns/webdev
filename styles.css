@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+body {
+    background-color: #F8E7C2;
+    color: #6B815E;
+    font-family: 'Special Elite', cursive;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #9A9F7D;
+}
+
+h1 {
+    color: #C45A33;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#question {
+    width:100%;
+    padding: 7px;
+    font-size: 14px;
+    border: 2px solid #9A9F7D;
+    border-radius: 6px;
+    background-color: #F8E7C2;
+    color: #6B815E;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Special Elite', cursive;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #9A9F7D;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #9A9F7D;
+    border-radius: 6px;
+    background-color: #F8E7C2;
+    color: #6B815E;
+    font-family: 'Special Elite', cursive;
+}
+
+button {
+    background: #DA8953;
+    color: white;
+    border: 2px solid #9A9F7D;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Special Elite', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: inset 0 -4px #C45A33, inset 0 2px #EBCB8B, 2px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #C45A33;
+    box-shadow: inset 0 -2px #9A9F7D, inset 0 2px #EBCB8B, 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+}
+
+.response-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #EBCB8B;
+    border-radius: 8px;
+    color: #6B815E;
+    font-size: 16px;
+    box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 200px;
+    text-align: left;
+    overflow-y: auto;
+    font-family: 'Special Elite', cursive;
+    border: 2px solid #9A9F7D;
+}

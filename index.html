@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Answering App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Question Answering App</h1>
+        <form id="qa-form">
+            <div class="form-group">
+                <label for="question">Enter your question:</label>
+                <input type="text" id="question" placeholder="Ask a question..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="llm-selector">Choose LLM:</label>
+                <select id="llm-selector">
+                    <option value="gemini">Gemini</option>
+                    <option value="gpt">GPT-3</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="format-selector">Choose Answer Format:</label>
+                <select id="format-selector">
+                    <option value="bullet-points">Bullet Points</option>
+                    <option value="detailed-example">Detailed with Example</option>
+                    <option value="caveman">Caveman</option>
+                    <option value="layman">Layman</option>
+                </select>
+            </div>
+            
+            <div>
+                <button type="submit" id="submit-button">Submit</button>
+            </div>
+        </form>
+        
+        <div id="response-area" class="response-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
