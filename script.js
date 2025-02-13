@@ -34,7 +34,7 @@ document.getElementById("qa-form").addEventListener("submit", async function (ev
 });
 
 async function fetchGemini(question) {
-    const API_URL = "http://localhost:3000/ask-gemini";
+      const API_URL = "http://localhost:3000/ask-gemini";
 
     try {
         const response = await fetch(API_URL, {
