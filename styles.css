@@ -33,8 +33,9 @@ h1 {
 }
 
 #question {
-    width:100%;
-    padding: 7px;
+    width: 98.5%;
+    padding-top: 10px;
+    padding-bottom: 8px;
     font-size: 14px;
     border: 2px solid #9A9F7D;
     border-radius: 6px;
