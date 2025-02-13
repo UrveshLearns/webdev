@@ -44,6 +44,9 @@ h1 {
     text-align: center;
     margin-bottom: 10px;
     font-family: 'Special Elite', cursive;
+    word-wrap: break-word;
+    white-space: normal;
+    resize: vertical;
 }
 
 .form-group {
